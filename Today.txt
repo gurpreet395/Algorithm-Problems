@@ -1,0 +1,18 @@
+Schedule:
+
+	Today:
+		Test beacons and see if they work
+		{Try with app closing and re opening}
+		(till 7 in the evening)
+		-----------------------------
+		7-8 Gym  (8:30 )home
+
+		----------------------------
+
+		8:45 -- 11:00 
+		(Algorithms)
+
+		-----------------------------
+		11:12 eat
+		-----------------------------
+		12-2:00 study

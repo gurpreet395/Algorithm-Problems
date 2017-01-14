@@ -1,0 +1,32 @@
+import sys
+
+def initializeTable(value):
+	
+	table=[sys.maxint for i in range(0,value+1)]
+	table[0]=0
+	return table
+
+def minchange(arr, value,count,t):
+	if(value==0):
+		#print "im here"
+		return 0
+	minimum=0
+	subres=sys.maxint
+	for i in range(0,len(arr)-1):
+		
+		if arr[i]<=value:
+#			print "calling with", value-arr[i]
+			if t[value-arr[i]]!=sys.maxint:
+				minimum=t[value-arr[i]]
+			else:
+				t[value-arr[i]]=minchange(arr,value-arr[i],count,t)
+				minimum =t[value-arr[i]]
+			if (subres>1+minimum):
+				subres=minimum+1
+				
+
+#	print "returning now"		
+	return subres
+table=initializeTable(200)
+print minchange([9,6,5,1,12,13,14,15,16],200,0,table)
+		

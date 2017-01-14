@@ -1,0 +1,52 @@
+
+def findlongestpalindromes(string,count):
+	print "calling with string", string
+	found=0
+	size=len(string)
+	if(size<=2):
+		return 0
+	for i in xrange(0,size/2):
+		for j in xrange(size/2+1,size):
+			if string[i]==string[j]:
+				#print "j is before",j
+				t,found=matchingHelper(string,i,j,size)
+				if found==2:
+					print "j is",j
+					count+=2
+					string=string[:-(size-j)]
+					#print "string is",string 
+					break
+		if found==2:
+			string=string[t:]
+			
+			#print "strign is", string
+			break
+		else:
+			string=string[i+1:]
+			break
+	
+	count=count+findlongestpalindromes(string,count)
+	print count
+	return found
+	
+
+def matchingHelper(string, i, j,length):
+	l=1
+	#print length
+	while j+l<length:
+		#print "j+l is", j+l
+		#print l
+		if string[i+l]!=string[j+l]:
+			return 0
+		l+=1
+	return i+l,2
+		
+			 
+	
+string='ghiabcdefhelloadamhelloabcdefghi'
+count=0
+cmt=findlongestpalindromes(string,count)
+print count
+print "cen", cmt
+	
+		

@@ -1,0 +1,20 @@
+from random import randint
+
+def generateMatrix(n):
+	a=[]
+	for r in xrange(0,n):
+		for c in xrange(0,n):
+			a[r][c]=randint(1,4)
+			if r<2 and c<2:
+				continue
+			elif r<2 and c>=2:
+				if a[r][c-1]==a[r][c] and a[r][c-2]==a[r][c]:
+					a[r][c]=randint(1,4)
+			elif r>=2 and c<2:
+				if a[r-1][c]==a[r][c] and a[r-2][c]==a[r][c]:
+					a[r][c]=randint(1,4)
+			elif r>=2 and c>=2:
+				if (a[r][c-1]==a[r][c]and a[r][c-2]==a[r][c]) or (a[r-1][c]==a[r][c] and a[r-2][c]==a[r][c]):
+					a[r][c]=randint(1,4)
+				
+			
